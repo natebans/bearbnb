@@ -5,12 +5,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "pages#home"
   resources :bears
-  # resources :bookings do
-  #   member do
-  #     get :request
-  #     get :confirmation
-  #   end
-  # end
-  get "/bookings/:id/request", to: "bookings#request", as: :request
-  get "/bookings/:id/confirmation", to: "bookings#confirmation", as: :confirmation
+  resources :bookings, except: %i[index show new create edit update destroy] do
+    member do
+      get :request
+      get :confirmation
+    end
+  end
 end
