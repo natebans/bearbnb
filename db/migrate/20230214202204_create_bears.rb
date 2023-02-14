@@ -6,7 +6,6 @@ class CreateBears < ActiveRecord::Migration[7.0]
       t.string :size
       t.float :price
       t.string :color
-      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
