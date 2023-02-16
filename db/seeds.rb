@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts 'Cleaning database...'
+Bear.destroy_all
+
+puts 'creating Giant Teddy Bears...'
+
+20.times do
+  Bear.create(
+    name: Faker::Kpop.iii_groups,
+    location: Faker::Address.city,
+    size: ['Small', 'Medium', 'Large'].sample,
+    price: rand(10.99..200.00).round(2),
+    color: Faker::Color.color_name,
+    picture_url: "https://source.unsplash.com/random"
+  )
+end
+
+puts 'Finished!'
