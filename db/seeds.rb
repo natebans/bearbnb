@@ -16,7 +16,8 @@ puts 'creating Giant Teddy Bears...'
     location: Faker::Address.city,
     size: ['Small', 'Medium', 'Large'].sample,
     price: rand(10.99..200.00).round(2),
-    color: Faker::Color.color_name
+    color: Faker::Color.color_name,
+    picture_url: "https://source.unsplash.com/random"
   )
 end
 
