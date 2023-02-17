@@ -20,5 +20,52 @@
     but not the hassle of ownership
   </p>
 
-  <%= link_to "See the bears", bears_path, class: "btn btn-flat mb-4" %>
+  <section>
+    <div class='d-flex flex-row'>
+      <div class='w-25 m-4'>
+        <form action="???" data-turbo="false" class="d-flex flex-column">
+          <label for="size">Bear name:</label><br>
+          <input type="text" id="size" name="???" class='mb-4'>
+
+          <label for="location">Location:</label><br>
+          <input type="text" id="location" name="???" class='mb-4'>
+
+          <label for="size">Bear Size:</label><br>
+          <input type="text" id="Size" name="???" class='mb-4'>
+
+          <label for="color">Color:</label><br>
+          <input type="text" id="location" name="???" class='mb-4'>
+
+          <div class='d-flex flex-row mb-4'>
+            <div class='w-25 me-2'>
+              <label for="start-date">Start date:</label><br>
+              <input type="date" id="start-date" name="???">
+            </div>
+            <div class='w-25 ms-2'>
+              <label for="end-date">End date:</label><br>
+              <input type="date" id="end-date" name="">
+            </div>
+          </div>
+
+          <input type="submit" value="Search!">
+
+
+        </form>
+      </div>
+      <div class='w-50 m-4'>
+        <div class="d-flex flex-row flex-wrap">
+          <% @bears.each do |bear|  %>
+              <div class="w-25 m-2 border border-dark-subtle rounded-4">
+                <img src="<%= bear.picture_url %>" class="img-fluid rounded-4"/>
+                <p class="m-0 mb-1 ms-1"><%= bear.name %></p>
+                <p class="m-0 mb-1 ms-1">Location: <%= bear.location %></p>
+                <p class="m-0 mb-1 ms-1">Size: <%= bear.size %></p>
+                <p class="m-0 mb-1 ms-1">Color: <%= bear.color %></p>
+                <p class="m-0 mb-1 ms-1">Price: <%= bear.price %>€</p>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
