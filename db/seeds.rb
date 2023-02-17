@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-puts 'Cleaning database...'
+puts 'Cleaning bears database...'
 Bear.destroy_all
 
 puts 'creating Giant Teddy Bears...'
@@ -21,4 +21,20 @@ puts 'creating Giant Teddy Bears...'
   )
 end
 
-puts 'Finished!'
+puts 'Finished seeding bears!'
+
+puts 'Cleaning users database...'
+User.destroy_all
+
+puts 'creating Users...'
+
+10.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: 1234,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
+end
+
+puts 'Finished seeding users!'
