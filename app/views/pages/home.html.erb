@@ -1,2 +1,71 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('pexels-wilson-vitorino-2782682') %>)">
+  <div class="container">
+    <h1>Bear bnb</h1>
+    <p>Your one-stop shop for Giant Teddy Bear rentals</p>
+  </div>
+</div>
+
+<div class="container">
+  <p>
+    Do you have a big event approaching?
+    <br>
+    Do you want to surprise someone with a nice Giant Teddy Bear, but don't want to deal with the hassle of owning one?
+    <br>
+    Do you simply want to be ensconced in the fuzzy embrace of a stuffed animal?
+  </p>
+
+  <p>
+    Bear bnb was conceived for people who want the <strong>WOW</strong> factor of a Giant Teddy Bear,
+    <br>
+    but not the hassle of ownership
+  </p>
+
+  <section>
+    <div class='d-flex flex-row'>
+      <div class='w-25 m-4'>
+        <form action="???" data-turbo="false" class="d-flex flex-column">
+          <label for="size">Bear name:</label><br>
+          <input type="text" id="size" name="???" class='mb-4'>
+
+          <label for="location">Location:</label><br>
+          <input type="text" id="location" name="???" class='mb-4'>
+
+          <label for="size">Bear Size:</label><br>
+          <input type="text" id="Size" name="???" class='mb-4'>
+
+          <label for="color">Color:</label><br>
+          <input type="text" id="location" name="???" class='mb-4'>
+
+          <div class='d-flex flex-row mb-4'>
+            <div class='w-25 me-2'>
+              <label for="start-date">Start date:</label><br>
+              <input type="date" id="start-date" name="???">
+            </div>
+            <div class='w-25 ms-2'>
+              <label for="end-date">End date:</label><br>
+              <input type="date" id="end-date" name="">
+            </div>
+          </div>
+
+          <input type="submit" value="Search!">
+
+
+        </form>
+      </div>
+      <div class='w-50 m-4'>
+        <div class="d-flex flex-row flex-wrap">
+          <% @bears.each do |bear|  %>
+              <div class="w-25 m-2 border border-dark-subtle rounded-4">
+                <img src="<%= bear.picture_url %>" class="img-fluid rounded-4"/>
+                <p class="m-0 mb-1 ms-1"><%= bear.name %></p>
+                <p class="m-0 mb-1 ms-1">Location: <%= bear.location %></p>
+                <p class="m-0 mb-1 ms-1">Size: <%= bear.size %></p>
+                <p class="m-0 mb-1 ms-1">Color: <%= bear.color %></p>
+                <p class="m-0 mb-1 ms-1">Price: <%= bear.price %>€</p>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
