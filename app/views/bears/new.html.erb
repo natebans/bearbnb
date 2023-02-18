@@ -1,10 +1,16 @@
-<h1>New Bear:</h1>
-<%= simple_form_for(@bear) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :color %>
-  <%= f.input :size %>
-  <%= f.input :location %>
-  <%= f.input :price %>
-  <%= f.input :picture_url, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h1>New Bear:</h1>
+  <div class="mb-3">
+    <%= simple_form_for(@bear) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :color %>
+      <%= f.input :size %>
+      <%= f.input :location %>
+      <%= f.input :price %>
+      <%= f.input :picture_url, as: :file %>
+      <%= f.submit class: "btn btn-flat" %>
+    <% end %>
+  </div>
+
+  <p ><%= link_to "Back to home", root_path, class: "btn btn-flat" %></p>
+</div>
