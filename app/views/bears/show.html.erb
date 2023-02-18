@@ -1,9 +1,9 @@
-<h1>Bears#show</h1>
-<p>Find me in app/views/bears/show.html.erb</p>
-<p><%= @bear.name %></p>
-<p><%= @bear.color %></p>
-<p><%= @bear.size %></p>
-<p><%= @bear.picture_url %></p>
-<p><%= @bear.location %></p>
-<p><%= @bear.price %></p>
-<p><%= @bear.picture_url %></p>
+<div class="container">
+  <h1><%= @bear.name %></h1>
+
+  <%= image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
+  <p>Color: <%= @bear.color %></p>
+  <p>Size: <%= @bear.size %></p>
+  <p>Location: <%= @bear.location %></p>
+  <p>Price: <%= @bear.price %></p>
+</div>
