@@ -16,7 +16,7 @@ class BearsController < ApplicationController
     if @bear.save
       redirect_to bear_path(@bear)
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class BearsController < ApplicationController
     if @bear.update(bear_params)
       redirect_to bear_path(@bear)
     else
-      render 'edit'
+      render 'edit', status: :unprocessable_entity
     end
   end
 
