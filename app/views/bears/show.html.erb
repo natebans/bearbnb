@@ -2,8 +2,13 @@
   <h1><%= @bear.name %></h1>
 
   <%= cl_image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
-  <p>Color: <%= @bear.color %></p>
+  <p class="mt-2">Color: <%= @bear.color %></p>
   <p>Size: <%= @bear.size %></p>
   <p>Location: <%= @bear.location %></p>
   <p>Price: <%= @bear.price %></p>
+
+  <%= link_to "Delete",
+    bear_path(@bear),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
 </div>
