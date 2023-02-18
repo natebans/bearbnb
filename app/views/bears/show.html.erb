@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= @bear.name %></h1>
 
-  <%= image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
+  <%= cl_image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
   <p>Color: <%= @bear.color %></p>
   <p>Size: <%= @bear.size %></p>
   <p>Location: <%= @bear.location %></p>
