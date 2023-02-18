@@ -1,5 +1,4 @@
 class BearsController < ApplicationController
-
   def index
     @bears = Bear.all
   end
@@ -11,40 +10,37 @@ class BearsController < ApplicationController
   def new
     @bear = Bear.new
   end
-end
 
-def create
-  @bear = Bear.new(bear_params)
-  if @bear.save
-    redirect_to bear_path(@bear)
-  else
-    render 'new'
+  def create
+    @bear = Bear.new(bear_params)
+    if @bear.save
+      redirect_to bear_path(@bear)
+    else
+      render 'new', status: :unprocessable_entity
+    end
   end
-end
 
-def edit
-  @bear = Bear.find(params[:id])
-end
-
-def update
-  @bear = Bear.find(params[:id])
-  if @bear.update(bear_params)
-    redirect_to bear_path(@bear)
-  else
-    render 'edit'
+  def edit
+    @bear = Bear.find(params[:id])
   end
-end
 
-def destroy
-  @bear = Bear.find(params[:id])
-  @bear.destroy
-  redirect_to bears_path
-end
+  def update
+    @bear = Bear.find(params[:id])
+    if @bear.update(bear_params)
+      redirect_to bear_path(@bear)
+    else
+      render 'edit', status: :unprocessable_entity
+    end
+  end
 
-private
+  def destroy
+    @bear = Bear.find(params[:id])
+    @bear.destroy
+    redirect_to bears_path
+  end
 
-def bear_params
-  params.require(:bear).permit(:name, :color)
-end
-
+  private
+  def bear_params
+    params.require(:bear).permit(:name, :color, :description, :price, :quantity, :image)
+  end
 end
