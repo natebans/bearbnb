@@ -5,3 +5,4 @@ class PagesController < ApplicationController
     @bears = Bear.all
   end
 end
+
