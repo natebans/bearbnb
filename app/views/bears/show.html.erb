@@ -9,6 +9,7 @@
 
   <%= link_to "Delete",
     bear_path(@bear),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+    class: "btn btn-flat mb-2"
   %>
 </div>
