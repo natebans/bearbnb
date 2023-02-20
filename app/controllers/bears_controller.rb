@@ -5,6 +5,7 @@ class BearsController < ApplicationController
 
   def show
     @bear = Bear.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -36,7 +37,7 @@ class BearsController < ApplicationController
   def destroy
     @bear = Bear.find(params[:id])
     @bear.destroy
-    redirect_to bears_path
+    redirect_to root_path
   end
 
   private

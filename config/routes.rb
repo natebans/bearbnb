@@ -3,14 +3,11 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/about", to: "pages#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  get "/bookings/request", to: "bookings#request"
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :bears
-  resources :bookings, except: %i[index show new create edit update destroy] do
-    member do
-      get :request
-      get :confirmation
-    end
+  resources :bears do
+    resources :bookings, only: :create
   end
+  #resources :bookings, only: %i[request confirmation]
 end
