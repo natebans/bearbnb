@@ -15,8 +15,7 @@ class BookingsController < ApplicationController
   end
 
 
- def request
-
+  def request
   end
 
   def confirmation
@@ -24,7 +23,7 @@ class BookingsController < ApplicationController
      redirect_to booking_path(@booking), notice: 'Booking confirmed'
     else
      render 'confirmation', status: :unprocessable_entity
-   end
+    end
   end
 
   private
