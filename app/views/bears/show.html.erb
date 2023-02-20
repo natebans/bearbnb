@@ -1,6 +1,6 @@
 <div class="text-center m-3">
   <h1><%= @bear.name %></h1>
-
+  <%= render "form", restaurant: @bear %>
   <%= cl_image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
   <div class="mt-2">
     <p>Color: <%= @bear.color %></p>

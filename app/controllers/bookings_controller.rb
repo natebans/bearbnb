@@ -1,28 +1,39 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_user
   before_action :find_booking, only: [ :confirmation, :request ]
   before_action :find_bear, only: [ :confirmation, :request ]
 
-  def confirmation
-    if @booking.update(status: "confirmed")
-      redirect_to booking_path(@booking), notice: 'Booking confirmed'
-    else
-      render 'confirmation', status: :unprocessable_entity
-    end
-  end
-
-  def request
-    if @booking.update(status: "requested")
-      redirect_to booking_path(@booking), notice: 'Booking request sent'
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.bear = Bear.find(params[:bear_id])
+    @booking.user = current_user
+    if @booking.save
+      redirect_to booking_path(@booking), notice: 'Booking successful'
     else
       render 'request', status: :unprocessable_entity
     end
   end
 
+
+ def request
+
+  end
+
+  def confirmation
+    if @booking.update(status: "confirmed")
+     redirect_to booking_path(@booking), notice: 'Booking confirmed'
+    else
+     render 'confirmation', status: :unprocessable_entity
+   end
+  end
+
   private
 
-  def set_booking
+  def find_bear
+    @bear = Bear.find(params[:bear_id])
+  end
+
+  def find_booking
     @booking = Booking.find(params[:id])
   end
 

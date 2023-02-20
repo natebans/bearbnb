@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Booking Request:</h1>
+  <div class="mb-3">
+    <%= simple_form_for [@bear, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit class: "btn btn-flat" %>
+
+    <% end %>
+  </div>
+  <p><%= link_to "Back to home", root_path, class: "btn btn-flat" %></p>
+</div>
