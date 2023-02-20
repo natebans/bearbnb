@@ -5,6 +5,7 @@ class BearsController < ApplicationController
 
   def show
     @bear = Bear.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
