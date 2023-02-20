@@ -1,14 +1,17 @@
-<div class="container">
+<div class="text-center m-3">
   <h1><%= @bear.name %></h1>
 
   <%= cl_image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
-  <p class="mt-2">Color: <%= @bear.color %></p>
-  <p>Size: <%= @bear.size %></p>
-  <p>Location: <%= @bear.location %></p>
-  <p>Price: <%= @bear.price %></p>
+  <div class="mt-2">
+    <p>Color: <%= @bear.color %></p>
+    <p>Size: <%= @bear.size %></p>
+    <p>Location: <%= @bear.location %></p>
+    <p>Price: <%= @bear.price %></p>
+  </div>
 
   <%= link_to "Delete",
     bear_path(@bear),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+    class: "btn btn-flat mb-2"
   %>
 </div>
