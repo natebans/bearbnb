@@ -1,15 +1,6 @@
 <div class="text-center m-3">
   <h1><%= @bear.name %></h1>
-  <div class="container">
-  <h3>Booking Request:</h3>
-  <div class="mb-3">
-    <%= simple_form_for [@bear, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit class: "btn btn-flat" %>
-    <% end %>
-  </div>
-  </div>
+  <%= render "form", bear: @bear %>
   <%= cl_image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
   <div class="mt-2">
     <p>Color: <%= @bear.color %></p>
