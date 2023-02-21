@@ -1,7 +1,7 @@
 <div class="text-center m-3">
   <h1><%= @bear.name %></h1>
   <%= render "form", restaurant: @bear %>
-  <%= cl_image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
+  <%= cl_image_tag @bear.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="mt-2">
     <p>Color: <%= @bear.color %></p>
     <p>Size: <%= @bear.size %></p>
@@ -18,4 +18,3 @@
   </p>
   <p><%= link_to "Back to home", root_path, class: "btn btn-flat" %></p>
 </div>
-
