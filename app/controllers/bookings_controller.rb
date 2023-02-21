@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :find_booking, only: [ :confirmation, :request, :show ]
   before_action :find_bear, only: [ :confirmation, :request ]
 
@@ -40,6 +40,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :status)
+    params.require(:booking).permit(:start_date, :end_date, :status, :user_id, :bear_id)
   end
 end
