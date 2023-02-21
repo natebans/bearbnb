@@ -1,11 +1,14 @@
 <h1>Bears#edit</h1>
 <p>Find me in app/views/bears/edit.html.erb</p>
-<%= simple_form_for(@bear) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :color %>
-  <%= f.input :size %>
-  <%= f.input :location %>
-  <%= f.input :price %>
-  <%= f.input :picture_url, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div>
+  <%= simple_form_for(@bear) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :color %>
+    <%= f.input :size %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.input :picture_url, as: :file %>
+    <%= f.submit class: "btn btn-flat" %>
+  <% end %>
+</div>
+<p class="mt-2"><%= link_to "back to bear", bear_path(@bear), class: "btn btn-flat" %></p>

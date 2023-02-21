@@ -7,6 +7,7 @@
     <p>Size: <%= @bear.size %></p>
     <p>Location: <%= @bear.location %></p>
     <p>Price: <%= @bear.price %></p>
+    <%= link_to "Edit bear", edit_bear_path, class: "btn btn-flat"  %>
   </div>
 
   <p>
@@ -18,4 +19,3 @@
   </p>
   <p><%= link_to "Back to home", root_path, class: "btn btn-flat" %></p>
 </div>
-
