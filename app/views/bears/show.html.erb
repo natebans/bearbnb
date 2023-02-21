@@ -1,12 +1,13 @@
 <div class="text-center m-3">
   <h1><%= @bear.name %></h1>
   <%= render "form", bear: @bear %>
-  <%= cl_image_tag @bear.picture_url, alt: "Giant Teddy Bear", width: 400 %>
+  <%= cl_image_tag @bear.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="mt-2">
     <p>Color: <%= @bear.color %></p>
     <p>Size: <%= @bear.size %></p>
     <p>Location: <%= @bear.location %></p>
     <p>Price: <%= @bear.price %></p>
+    <%= link_to "Edit bear", edit_bear_path, class: "btn btn-flat"  %>
   </div>
 
   <p>
