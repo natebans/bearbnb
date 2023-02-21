@@ -17,12 +17,11 @@ class BookingsController < ApplicationController
     end
   end
 
-
-  def request
+  def booking_request
   end
 
   def confirmation
-    if @booking.update(confirmation)
+    if @booking.update(confirmed)
      redirect_to booking_path(@booking), notice: 'Booking confirmed'
     else
      render 'confirmation', status: :unprocessable_entity
@@ -40,6 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :confirmation, :user_id, :bear_id)
+    params.require(:booking).permit(:start_date, :end_date, :confirmed, :user_id, :bear_id)
   end
 end
