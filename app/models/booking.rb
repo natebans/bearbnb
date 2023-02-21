@@ -1,8 +1,8 @@
 class Booking < ApplicationRecord
-  attribute :status, :string
+  attribute :confrimation, :string
   belongs_to :bear
   belongs_to :user
 
   validates :bear_id, presence: true
-  validates :status, presence: true
+  validates :confirmation, presence: true
 end
