@@ -1,21 +1,21 @@
 <div class="text-center m-3">
-  <h1><%= @bear.name %></h1>
-  <%= render "form", bear: @bear %>
+<h1><strong>Congratulations you have just added <%= @bear.name.capitalize %> a to the Bearbnb!</strong> </h1>
+<header>
+  <h1><%= @bear.name.capitalize %></h1>
+</header>
   <%= cl_image_tag @bear.photo.key, height: 300, width: 400, crop: :fill %>
-  <div class="mt-2">
-    <p>Color: <%= @bear.color %></p>
-    <p>Size: <%= @bear.size %></p>
-    <p>Location: <%= @bear.location %></p>
-    <p>Price: <%= @bear.price %></p>
-    <%= link_to "Edit bear", edit_bear_path, class: "btn btn-flat"  %>
+  <div class="m-0 mb-1 ms-1">
+    <p><strong>Color:</strong> <%= @bear.color.capitalize %></p>
+    <p><strong>Size:</strong> <%= @bear.size.capitalize %></p>
+    <p><strong>Location:</strong> <%= @bear.location.capitalize %></p>
+    <p><strong>Price:</strong> <%= @bear.price %>€</p>
   </div>
-
-  <p>
+  <div class="d-flex justify-content-center align-items-center mt-3">
+    <%= link_to "Edit bear", edit_bear_path, class: "btn btn-flat me-3" %>
     <%= link_to "Delete",
       bear_path(@bear),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn btn-warning mb-2"
-    %>
-  </p>
-  <p><%= link_to "Back to home", root_path, class: "btn btn-flat" %></p>
+      class: "btn btn-flat me-3" %>
+    <%= link_to "Back to home", root_path, class: "btn btn-flat" %>
+  </div>
 </div>
