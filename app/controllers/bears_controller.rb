@@ -1,19 +1,27 @@
 class BearsController < ApplicationController
+  before_action :set_bear, only: [:show, :edit, :update, :destroy]
+
   def index
     @bears = Bear.all
   end
 
   def show
-    @bear = Bear.find(params[:id])
     @booking = Booking.new
+    authorize @bear
   end
 
   def new
     @bear = Bear.new
+    authorize @bear
   end
 
   def create
+
     @bear = Bear.new(bear_params)
+    @bear.user = current_user
+
+    authorize @bear
+
     if @bear.save
       redirect_to bear_path(@bear)
     else
@@ -22,11 +30,12 @@ class BearsController < ApplicationController
   end
 
   def edit
-    @bear = Bear.find(params[:id])
+    authorize @bear
   end
 
   def update
-    @bear = Bear.find(params[:id])
+    authorize @bear
+
     if @bear.update(bear_params)
       redirect_to bear_path(@bear)
     else
@@ -35,12 +44,17 @@ class BearsController < ApplicationController
   end
 
   def destroy
-    @bear = Bear.find(params[:id])
+    authorize @bear
     @bear.destroy
     redirect_to root_path
   end
 
   private
+
+  def set_bear
+    @bear = Bear.find(params[:id])
+  end
+
   def bear_params
     params.require(:bear).permit(:name, :color, :size, :picture_url, :location, :description, :price, :quantity, :image, :photo)
   end
