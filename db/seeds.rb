@@ -9,16 +9,22 @@ puts 'Cleaning bears database...'
 Bear.destroy_all
 
 puts 'creating Giant Teddy Bears...'
-
+def faker_img
+  Faker::LoremFlickr.image(size: "300x300", search_terms: ['bear'])
+end
 20.times do
-  Bear.create(
+  bear = Bear.create(
     name: Faker::Kpop.iii_groups,
     location: Faker::Address.city,
     size: ['Small', 'Medium', 'Large'].sample,
     price: rand(10.99..200.00).round(2),
     color: Faker::Color.color_name,
-    picture_url: "https://source.unsplash.com/random"
+    # picture_url: "https://source.unsplash.com/random"
+    picture_url: faker_img
   )
+  # photo = UnsplashImage.tempfile(size: '500x500', tags: 'cat')
+  # bear.photo.attach(io: URI.open(photo), filename: "bear.jpg")
+  # bear.save!
 end
 
 puts 'Finished seeding bears!'
