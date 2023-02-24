@@ -21,6 +21,7 @@ class BearsController < ApplicationController
 
   def create
     @bear = Bear.new(bear_params)
+    @bear.user = current_user
     if @bear.save
       redirect_to bear_path(@bear)
     else
@@ -49,6 +50,6 @@ class BearsController < ApplicationController
 
   private
   def bear_params
-    params.require(:bear).permit(:name, :color, :size, :picture_url, :location, :description, :price, :quantity, :image, :photo)
+    params.require(:bear).permit(:name, :color, :size, :picture_url, :location, :description, :price, :photo)
   end
 end

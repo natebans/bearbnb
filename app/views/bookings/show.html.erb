@@ -1,0 +1,9 @@
+<h1>
+  <%= @booking.bear.name %> is booked!
+</h1>
+
+<p>
+  From: <%= @booking.start_date %> To: <%= @booking.end_date %>
+</p>
+
+<%= link_to "Back to home", root_path, class: "btn btn-flat" %>

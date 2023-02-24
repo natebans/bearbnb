@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.bear = Bear.find(params[:bear_id])
+    @booking.bear = find_bear
     @booking.user = current_user
     if @booking.save
       redirect_to booking_path(@booking), notice: 'Booking request successful'
