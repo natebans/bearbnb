@@ -2,7 +2,10 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @bears = Bear.all
+      if params[:name].present?
+        @bears = Bear.search_name(params[:name])
+      else
+        @bears = Bear.all
+      end
   end
 end
-
