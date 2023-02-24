@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_02_24_183325) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_222150) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_183325) do
     t.string "picture_url"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_bears_on_user_id"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "bookings", force: :cascade do |t|

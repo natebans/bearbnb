@@ -6,6 +6,13 @@ class BearsController < ApplicationController
   def show
     @bear = Bear.find(params[:id])
     @booking = Booking.new
+    # @bear.geocoded
+    # @markers = @flats.geocoded.map do |flat|
+    #   {
+    #     lat: flat.latitude,
+    #     lng: flat.longitude
+    #   }
+    # end
   end
 
   def new

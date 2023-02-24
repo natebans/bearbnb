@@ -7,11 +7,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
+    <% if action_name == "home" || action_name == "home" %>
+      <%= render "shared/navbar" %>
+    <% else %>
+      <%= render "shared/navbar_simple" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
     <% if user_signed_in? %>
