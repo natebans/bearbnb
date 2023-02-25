@@ -52,7 +52,7 @@ end
     color: Faker::Color.color_name,
     picture_url: "https://source.unsplash.com/random",
     user_id: user2.id
-
   )
+end
 
 puts 'Finished seeding bears!'
