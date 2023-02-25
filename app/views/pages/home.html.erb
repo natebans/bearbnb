@@ -20,41 +20,19 @@
     Bear bnb was conceived for people who want the <strong>WOW</strong>
     factor of a Giant Teddy Bear, but not the hassle of ownership.
   </p>
-
+  <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :name,
+      params[:name],
+      class: "form-control",
+      placeholder: "Search for a bear"
+  %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+    <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
+  <% end %>
   <section>
     <div class='d-flex flex-row'>
-      <div class='w-25 m-4'>
-        <form action="???" data-turbo="false" class="d-flex flex-column">
-          <label for="size">Bear name:</label>
-          <input type="text" id="size" name="???" class='mb-4'>
-
-          <label for="location">Location:</label>
-          <input type="text" id="location" name="???" class='mb-4'>
-
-          <label for="size">Bear Size:</label>
-          <input type="text" id="Size" name="???" class='mb-4'>
-
-          <label for="color">Color:</label>
-          <input type="text" id="location" name="???" class='mb-4'>
-
-          <div class='d-flex flex-row mb-4'>
-            <div class='w-25 me-4'>
-              <label for="start-date">Start date:</label>
-              <input type="date" id="start-date" name="???">
-            </div>
-            <div class='w-25 ms-4'>
-              <label for="end-date">End date:</label>
-              <input type="date" id="end-date" name="">
-            </div>
-          </div>
-
-          <input type="submit" value="Search!" class="btn btn-flat">
-
-
-        </form>
-      </div>
-      <div class='w-75 m-4'>
-        <div class="d-flex flex-row flex-wrap">
+      <div class='w-100 m-4'>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
           <% @bears.each do |bear| %>
             <div class="w-25 m-2 border border-dark-subtle rounded-4 card-trip">
               <%= link_to '', bear_path(bear), class: 'card-link' %>
