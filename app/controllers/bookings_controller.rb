@@ -2,15 +2,16 @@ class BookingsController < ApplicationController
   # before_action :authenticate_user!
   before_action :find_booking, only: [ :confirmation, :request, :show, :destroy ]
   before_action :find_bear, only: [ :confirmation, :request ]
-  before_action :find_user, only: :destroy
 
   def show
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.bear = find_bear
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to booking_path(@booking), notice: 'Booking request successful'
     else
@@ -30,8 +31,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
+    user = @booking.user
     @booking.destroy
-    redirect_to user_path(@user)
+    redirect_to user_path(user)
   end
 
   private
@@ -42,10 +45,6 @@ class BookingsController < ApplicationController
 
   def find_booking
     @booking = Booking.find(params[:id])
-  end
-
-  def find_user
-    @user = User.find(params[:id])
   end
 
   def booking_params
