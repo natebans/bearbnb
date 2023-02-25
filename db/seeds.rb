@@ -8,21 +8,6 @@
 puts 'Cleaning bears database...'
 Bear.destroy_all
 
-puts 'creating Giant Teddy Bears...'
-
-20.times do
-  Bear.create(
-    name: Faker::Kpop.iii_groups,
-    location: Faker::Address.city,
-    size: ['Small', 'Medium', 'Large'].sample,
-    price: rand(10.99..200.00).round(2),
-    color: Faker::Color.color_name,
-    picture_url: "https://source.unsplash.com/random"
-  )
-end
-
-puts 'Finished seeding bears!'
-
 puts 'Cleaning users database...'
 User.destroy_all
 
@@ -35,12 +20,23 @@ User.create(
   last_name: Faker::Name.last_name
 )
 10.times do
-  User.create(
+  user = User.create(
     email: Faker::Internet.email,
     password: 12341234,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
   )
+  2.times do
+    Bear.create(
+      name: Faker::Kpop.iii_groups,
+      location: Faker::Address.city,
+      size: ['Small', 'Medium', 'Large'].sample,
+      price: rand(10.99..200.00).round(2),
+      color: Faker::Color.color_name,
+      picture_url: "https://source.unsplash.com/random",
+      user: user,
+    )
+  end
 end
 
 puts 'Finished seeding users!'
