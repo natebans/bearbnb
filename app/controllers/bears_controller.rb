@@ -7,9 +7,7 @@ class BearsController < ApplicationController
 
   def show
     @booking = Booking.new
-<<<<<<< HEAD
     authorize @bear
-=======
     # @bear.geocoded
     # @markers = @flats.geocoded.map do |flat|
     #   {
@@ -17,7 +15,6 @@ class BearsController < ApplicationController
     #     lng: flat.longitude
     #   }
     # end
->>>>>>> master
   end
 
   def new
@@ -66,6 +63,6 @@ class BearsController < ApplicationController
   end
 
   def bear_params
-    params.require(:bear).permit(:name, :color, :size, :picture_url, :location, :description, :price, :quantity, :image, :photo)
+    params.require(:bear).permit(:name, :color, :size, :picture_url, :location, :description, :price, :photo)
   end
 end

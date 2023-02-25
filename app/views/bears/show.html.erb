@@ -22,6 +22,7 @@
         <p><strong>Size:</strong> <%= @bear.size.capitalize %></p>
         <p><strong>Location:</strong> <%= @bear.location.capitalize %></p>
         <p><strong>Price per day:</strong> <%= @bear.price %>€</p>
+        <p><strong>Owner:</strong> <%= @bear.user.first_name.capitalize %> <%= @bear.user.last_name.upcase %></p>
       </div>
 
       <div class="d-flex justify-content-center align-items-center mt-3">

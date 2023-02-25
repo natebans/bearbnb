@@ -1,0 +1,24 @@
+<h1>
+  <%= @booking.bear.name %> is booked!
+</h1>
+
+<p>
+  From: <%= @booking.start_date %>
+  <br>
+  To: <%= @booking.end_date %>
+</p>
+
+<p>
+  Owner of Giant Teddy Bear: <%= @booking.bear.user.first_name.capitalize %> <%= @booking.bear.user.last_name.upcase %>
+
+<p>
+  <%= link_to "Delete booking",
+    booking_path(@booking),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+    class: "btn btn-warning me-3"
+  %>
+</p>
+
+<p>
+  <%= link_to "Back to bookings", user_path(current_user), class: "btn btn-flat" %>
+</p>

@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :bookings, only: :create
   end
   #resources :bookings, only: %i[request confirmation]
-  resources :bookings, only: :show
+  resources :bookings, only: [:show, :destroy]
   resources :users, only: :show
 end

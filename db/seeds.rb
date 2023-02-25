@@ -13,30 +13,46 @@ User.destroy_all
 
 puts 'creating Users...'
 
-User.create(
-  email: "admin@gmail.com",
+
+user1 = User.create(
+  email: "user1@gmail.com",
   password: 12341234,
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name
 )
-10.times do
-  user = User.create(
-    email: Faker::Internet.email,
-    password: 12341234,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
-  )
-  2.times do
-    Bear.create(
-      name: Faker::Kpop.iii_groups,
-      location: Faker::Address.city,
-      size: ['Small', 'Medium', 'Large'].sample,
-      price: rand(10.99..200.00).round(2),
-      color: Faker::Color.color_name,
-      picture_url: "https://source.unsplash.com/random",
-      user: user,
-    )
-  end
-end
+
+user2 = User.create(
+  email: "user2@gmail.com",
+  password: 12341234,
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name
+)
 
 puts 'Finished seeding users!'
+puts 'creating Giant Teddy Bears...'
+
+10.times do
+  Bear.create(
+    name: Faker::Kpop.iii_groups,
+    location: Faker::Address.city,
+    size: ['Small', 'Medium', 'Large'].sample,
+    price: rand(10.99..200.00).round(2),
+    color: Faker::Color.color_name,
+    picture_url: "https://source.unsplash.com/random",
+    user_id: user1.id
+  )
+end
+
+10.times do
+  Bear.create(
+    name: Faker::Kpop.iii_groups,
+    location: Faker::Address.city,
+    size: ['Small', 'Medium', 'Large'].sample,
+    price: rand(10.99..200.00).round(2),
+    color: Faker::Color.color_name,
+    picture_url: "https://source.unsplash.com/random",
+    user_id: user2.id
+
+  )
+
+puts 'Finished seeding bears!'
