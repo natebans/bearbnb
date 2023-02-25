@@ -5,6 +5,17 @@
   border-radius: 4px;
   background: #b97f49;
   transition: background 0.3s ease;
+  border: 2px solid transparent;
+
+
+}
+
+.btn-delete {
+  background: red;
+
+  &:hover {
+    color: red;
+  }
 }
 
 .btn-flat:hover {
