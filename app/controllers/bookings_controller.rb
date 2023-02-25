@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
   # before_action :authenticate_user!
-  before_action :find_booking, only: [ :confirmation, :request, :show ]
+  before_action :find_booking, only: [ :confirmation, :request, :show, :destroy ]
   before_action :find_bear, only: [ :confirmation, :request ]
+  before_action :find_user, only: :destroy
 
   def show
   end
@@ -28,6 +29,11 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking.destroy
+    redirect_to user_path(@user)
+  end
+
   private
 
   def find_bear
@@ -36,6 +42,10 @@ class BookingsController < ApplicationController
 
   def find_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 
   def booking_params
