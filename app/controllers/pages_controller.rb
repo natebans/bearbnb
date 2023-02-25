@@ -4,4 +4,11 @@ class PagesController < ApplicationController
   def home
     @bears = Bear.all
   end
+
+  def profile
+    @user = current_user
+    @bear = Bear.new
+  end
+
+
 end

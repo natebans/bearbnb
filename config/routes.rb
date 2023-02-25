@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   #resources :bookings, only: %i[request confirmation]
   resources :bookings, only: :show
   resources :users, only: :show
+  get "/profile", to: "pages#profile"
 end
