@@ -22,9 +22,9 @@ class BookingsController < ApplicationController
 
   def confirmation
     if @booking.update(confirmed)
-     redirect_to booking_path(@booking), notice: 'Booking confirmed'
+    redirect_to booking_path(@booking), notice: 'Booking confirmed'
     else
-     render 'confirmation', status: :unprocessable_entity
+    render 'confirmation', status: :unprocessable_entity
     end
   end
 
