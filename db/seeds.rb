@@ -13,6 +13,7 @@ User.destroy_all
 
 puts 'creating Users...'
 
+
 user1 = User.create(
   email: "user1@gmail.com",
   password: 12341234,
@@ -51,7 +52,7 @@ end
     color: Faker::Color.color_name,
     picture_url: "https://source.unsplash.com/random",
     user_id: user2.id
+
   )
-end
 
 puts 'Finished seeding bears!'
