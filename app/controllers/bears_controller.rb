@@ -7,7 +7,17 @@ class BearsController < ApplicationController
 
   def show
     @booking = Booking.new
+<<<<<<< HEAD
     authorize @bear
+=======
+    # @bear.geocoded
+    # @markers = @flats.geocoded.map do |flat|
+    #   {
+    #     lat: flat.latitude,
+    #     lng: flat.longitude
+    #   }
+    # end
+>>>>>>> master
   end
 
   def new

@@ -14,3 +14,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.title {
+  color: #EEF0F2;
+  margin-left: 16px;
+  transition: .5s opacity;
+  opacity: 0;
+}
+
+.title h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.disappear-title {
+  opacity: 1;
+}

@@ -1,0 +1,11 @@
+<h1>Your account</h1>
+<%# include edit name(s) link %>
+<p><%= current_user.first_name %> <%= current_user.last_name %></p>
+<%# include edit email link %>
+<p><%= current_user.email %></p>
+<p>
+  <%= link_to "Edit/Delete your account", edit_user_registration_path, class: "btn btn-flat" %>
+</p>
+<p>
+  <%= link_to "Back to home", root_path, class: "btn btn-flat" %>
+</p>
