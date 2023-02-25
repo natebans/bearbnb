@@ -12,11 +12,12 @@
   Owner of Giant Teddy Bear: <%= @booking.bear.user.first_name.capitalize %> <%= @booking.bear.user.last_name.upcase %>
 
 <p>
-  <%= link_to "Delete booking",
+  <% if policy(@booking).destroy? %>
+    <%= link_to "Delete",
     booking_path(@booking),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: "btn btn-warning me-3"
-  %>
+    class: "btn btn-warning me-3"%>
+  <% end %>
 </p>
 
 <p>

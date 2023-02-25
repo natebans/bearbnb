@@ -23,7 +23,6 @@ class BearsController < ApplicationController
   end
 
   def create
-
     @bear = Bear.new(bear_params)
     @bear.user = current_user
 
