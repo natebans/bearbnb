@@ -1,9 +1,8 @@
 class BearsController < ApplicationController
   before_action :find_bear, only: [:edit, :update, :destroy, :show]
   def index
-      @bears = Bear.all
+    @bears = Bear.all
   end
-
 
   def show
     @booking = Booking.new
