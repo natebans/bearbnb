@@ -6,4 +6,8 @@
   From: <%= @booking.start_date %> To: <%= @booking.end_date %>
 </p>
 
-<%= link_to "Back to home", root_path, class: "btn btn-flat" %>
+<p>
+  Owner of Giant Teddy Bear: <%= @booking.bear.user.first_name.capitalize %> <%= @booking.bear.user.last_name.upcase %>
+</p>
+
+<%= link_to "Back to bookings", user_path(current_user), class: "btn btn-flat" %>

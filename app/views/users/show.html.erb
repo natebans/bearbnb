@@ -9,3 +9,12 @@
 <p>
   <%= link_to "Back to home", root_path, class: "btn btn-flat" %>
 </p>
+
+<h3>bookings:</h3>
+<ul>
+  <% current_user.bookings.each do |booking| %>
+    <li>
+      <%= link_to booking.bear.name, booking_path(booking), class: "text-decoration-none mb-2" %>
+    </li>
+  <% end %>
+</ul>
