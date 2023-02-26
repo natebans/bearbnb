@@ -1,8 +1,15 @@
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('pexels-wilson-vitorino-2782682.jpg') %>)">
   <div class="container">
     <h1>Bear bnb</h1>
     <p>Your one-stop shop for Giant Teddy Bear rentals</p>
+      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :name,
+      params[:name],
+      class: "form-control",
+      placeholder: "Search for a bear"
+  %>
+      <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
+    <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
   </div>
 </div>
 
@@ -20,14 +27,8 @@
     Bear bnb was conceived for people who want the <strong>WOW</strong>
     factor of a Giant Teddy Bear, but not the hassle of ownership.
   </p>
-  <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :name,
-      params[:name],
-      class: "form-control",
-      placeholder: "Search for a bear"
-  %>
-    <%= submit_tag "Search", class: "btn btn-flat" %>
-    <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
+
+
   <% end %>
   <section>
     <div class='d-flex flex-row'>
@@ -36,12 +37,12 @@
           <% @bears.each do |bear| %>
             <div class="w-25 m-2 border border-dark-subtle rounded-4 card-trip">
               <%= link_to '', bear_path(bear), class: 'card-link' %>
-              <img src="<%= bear.picture_url %>" class="img-fluid rounded-4"/>
-              <p class="m-0 mb-1 ms-1"><%= bear.name %></p>
-              <p class="m-0 mb-1 ms-1">Location: <%= bear.location %></p>
-              <p class="m-0 mb-1 ms-1">Size: <%= bear.size %></p>
-              <p class="m-0 mb-1 ms-1">Color: <%= bear.color %></p>
-              <p class="m-0 mb-1 ms-1">Price: <%= bear.price %>€</p>
+              <img src="<%= bear.picture_url %>" class="img-fluid rounded-4" style="border-bottom-right-radius: 0 !important; border-bottom-left-radius: 0 !important; "color: #563635""/>
+              <p class="m-0 pb-1 ps-3 pt-3" style="color: #563635" color: #563635> <strong><%= bear.name %></strong></p>
+              <p class="m-0 pb-1 ps-3"><i class="fa fa-map-marker" aria-hidden="true"style="color: #563635"></i> <%= bear.location %></p>
+              <p class="m-0 pb-1 ps-3"><i class="fa-solid fa-ruler"style="color: #563635"></i> <%= bear.size %></p>
+              <p class="m-0 pb-1 ps-3"><i class="fa fa-paint-brush" aria-hidden="true" style="color: #563635"></i> <%= bear.color %></p>
+              <p class="m-0 pb-1 ps-3 pb-3"><i class="fa-solid fa-money-check-dollar" style="color: #563635"></i> <%= bear.price %>€</p>
             </div>
           <% end %>
         </div>

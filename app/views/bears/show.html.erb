@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <div class="card rounded-4 px-3 py-2">
         <div class="card-body text-center picture-card">
-          <h1><strong><%= @bear.name.capitalize %></strong></h1>
+          <h1 style="color: #B97F49"><strong><%= @bear.name.capitalize %></strong></h1>
           <%= cl_image_tag @bear.photo.key, height: 300, width: 400, crop: :fill %>
         </div>
         <% if @showForm %>
@@ -17,11 +17,11 @@
       <div class="card rounded-4 px-3 py-2">
         <div class="card-body">
           <div class="m-0 mb-1">
-            <p><strong>Color:</strong> <%= @bear.color.capitalize %></p>
-            <p><strong>Size:</strong> <%= @bear.size.capitalize %></p>
-            <p><strong>Location:</strong> <%= @bear.location.capitalize %></p>
-            <p><strong>Price per day:</strong> <%= @bear.price %>€</p>
-            <p><strong>Owner:</strong> <%= @bear.user.first_name.capitalize %> <%= @bear.user.last_name.upcase %></p>
+            <i class="fa fa-paint-brush" aria-hidden="true" style="color: #563635"></i> <%= @bear.color.capitalize %></p>
+            <p><i class="fa-solid fa-ruler" style="color: #563635"></i> <%= @bear.size.capitalize %></p>
+            <p><i class="fa fa-map-marker" aria-hidden="true" style="color: #563635"></i> <%= @bear.location.capitalize %></p>
+            <p><i class="fa-solid fa-money-check-dollar" style="color: #563635"></i> <%= @bear.price %>€</p>
+            <p><i class="fa-solid fa-user" style="color: #563635"></i> <%= @bear.user.first_name.capitalize %> <%= @bear.user.last_name.upcase %></p>
           </div>
 
           <div class="d-flex align-items-center pt-3">
