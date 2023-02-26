@@ -1,11 +1,9 @@
 <div class="container">
-  <h3>Booking Request:</h3>
-  <div class="mb-3">
-    <%= simple_form_for [bear, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit class: "btn btn-flat" %>
+  <h4>Booking Request:</h4>
+  <%= simple_form_for [bear, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit class: "btn btn-flat" %>
 
-    <% end %>
-  </div>
+  <% end %>
 </div>

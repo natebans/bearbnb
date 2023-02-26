@@ -7,7 +7,13 @@ class BearsController < ApplicationController
 
   def show
     @booking = Booking.new
+
+
     authorize @bear
+    puts "userID " + current_user.id.to_s
+    puts "bear " + @bear.user.id.to_s
+
+    @showForm = current_user.id != @bear.user.id
     # @bear.geocoded
     # @markers = @flats.geocoded.map do |flat|
     #   {
