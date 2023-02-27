@@ -8,4 +8,8 @@ class PagesController < ApplicationController
       @bears = Bear.all
     end
   end
+
+  def about
+  end
+
 end
