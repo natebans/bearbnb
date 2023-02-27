@@ -12,15 +12,11 @@ class BearsController < ApplicationController
     authorize @bear
     puts "userID " + current_user.id.to_s
     puts "bear " + @bear.user.id.to_s
-
     @showForm = current_user.id != @bear.user.id
-    # @bear.geocoded
-    # @markers = @flats.geocoded.map do |flat|
-    #   {
-    #     lat: flat.latitude,
-    #     lng: flat.longitude
-    #   }
-    # end
+    @markers = [ {
+         lat: @bear.latitude,
+         lng: @bear.longitude
+       }]
   end
 
   def new
