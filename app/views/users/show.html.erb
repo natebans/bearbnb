@@ -12,13 +12,15 @@
 
 <h3>My bookings:</h3>
 <% if current_user == @user %>
-  <ul>
-    <% current_user.bookings.each do |booking| %>
-      <li>
-        <%= link_to booking.bear.name, booking_path(booking), class: "text-decoration-none mb-2" %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>User does not have any bookings yet!</p>
+  <% if current_user.bookings.exists? %>
+    <ul>
+      <% current_user.bookings.each do |booking| %>
+        <li>
+          <%= link_to booking.bear.name, booking_path(booking), class: "text-decoration-none mb-2" %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>User does not have any bookings yet!</p>
+  <% end %>
 <% end %>
