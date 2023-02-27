@@ -10,6 +10,21 @@
   <%= link_to "Back to home", root_path, class: "btn btn-flat" %>
 </p>
 
+<h3>My Giant Teddy Bears:</h3>
+<% if current_user == @user %>
+  <% if current_user.bears.exists? %>
+    <ul>
+      <% current_user.bears.each do |bear| %>
+        <li>
+          <%= link_to bear.name, bear_path(bear), class: "text-decoration-none mb-2" %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>User does not have any owned bears!</p>
+  <% end %>
+<% end %>
+
 <h3>My bookings:</h3>
 <% if current_user == @user %>
   <% if current_user.bookings.exists? %>
