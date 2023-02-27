@@ -15,8 +15,10 @@ class BearsController < ApplicationController
     @showForm = current_user.id != @bear.user.id
     @markers = [ {
          lat: @bear.latitude,
-         lng: @bear.longitude
-       }]
+         lng: @bear.longitude,
+         info_window_html: render_to_string(partial: "info_window", locals: {bear: @bear}),
+         marker_html: render_to_string(partial: "marker")
+         }]
   end
 
   def new

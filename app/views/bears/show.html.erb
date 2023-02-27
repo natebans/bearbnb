@@ -4,7 +4,7 @@
       <div class="card rounded-4 px-3 py-2">
         <div class="card-body text-center picture-card">
           <h1 style="color: #B97F49"><strong><%= @bear.name.capitalize %></strong></h1>
-          <%#= cl_image_tag @bear.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag @bear.photo.key, height: 300, width: 400, crop: :fill %>
         </div>
         <% if @showForm %>
           <div class="p-4">
@@ -22,6 +22,11 @@
             <p><i class="fa fa-map-marker" aria-hidden="true" style="color: #563635"></i> <%= @bear.location.capitalize %></p>
             <p><i class="fa-solid fa-money-check-dollar" style="color: #563635"></i> <%= @bear.price %>€</p>
             <p><i class="fa-solid fa-user" style="color: #563635"></i> <%= @bear.user.first_name.capitalize %> <%= @bear.user.last_name.upcase %></p>
+            <div style="width: auto; height: 300px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+          </div>
           </div>
 
           <div class="d-flex align-items-center pt-3">
@@ -37,11 +42,6 @@
             <% end %>
           </div>
         </div>
-      </div>
-      <div style="width: 400px; height: 300px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
       </div>
       </div>
     </div>
