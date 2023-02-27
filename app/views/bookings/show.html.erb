@@ -1,25 +1,31 @@
-<h1>
-  <%= @booking.bear.name %> is booked!
-</h1>
+<div class="container mt-5">
+  <div class="card rounded-4 px-3 py-2" style="display: inline-block;">
+    <div class="card-body">
+      <h1>
+        <%= @booking.bear.name %> is booked!
+      </h1>
 
-<p>
-  From: <%= @booking.start_date %>
-  <br>
-  To: <%= @booking.end_date %>
-</p>
+      <p>
+        From: <%= @booking.start_date %>
+        <br>
+        To: <%= @booking.end_date %>
+      </p>
 
-<p>
-  Owner of Giant Teddy Bear: <%= @booking.bear.user.first_name.capitalize %> <%= @booking.bear.user.last_name.upcase %>
+      <p><strong style="color: #563635;">
+        Owner of Giant Teddy Bear: <%= @booking.bear.user.first_name.capitalize %> <%= @booking.bear.user.last_name.upcase %>
+      </strong>
+      <p>
+        <% if policy(@booking).destroy? %>
+          <%= link_to "Delete",
+          booking_path(@booking),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "btn-delete btn btn-flat me-3"%>
+        <% end %>
+      </p>
 
-<p>
-  <% if policy(@booking).destroy? %>
-    <%= link_to "Delete",
-    booking_path(@booking),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: "btn-delete btn btn-flat me-3"%>
-  <% end %>
-</p>
-
-<p>
-  <%= link_to "Back to bookings", user_path(current_user), class: "btn btn-flat" %>
-</p>
+      <p>
+        <%= link_to "Back to bookings", user_path(current_user), class: "btn btn-flat" %>
+      </p>
+    </div>
+  </div>
+</div>
