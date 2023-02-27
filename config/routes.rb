@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   end
   #resources :bookings, only: %i[request confirmation]
   resources :bookings, only: [:show, :destroy]
-  resources :users, only: :show
+  resources :users, only: [:show, :update]
 end
