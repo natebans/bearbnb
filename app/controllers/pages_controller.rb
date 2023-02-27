@@ -12,4 +12,7 @@ class PagesController < ApplicationController
   def about
   end
 
+  def bear_params
+    params.require(:bear).permit(:name, :color, :size, :picture_url, :location, :description, :price, :photo)
+  end
 end

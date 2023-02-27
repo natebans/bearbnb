@@ -37,7 +37,7 @@
           <% @bears.each do |bear| %>
             <div class="w-25 m-2 border border-dark-subtle rounded-4 card-trip">
               <%= link_to '', bear_path(bear), class: 'card-link' %>
-              <img src="<%= bear.picture_url %>" class="img-fluid rounded-4" style="border-bottom-right-radius: 0 !important; border-bottom-left-radius: 0 !important; "color: #563635""/>
+              <img src="<%= cl_image_path bear.photo.key  %> "style="height: 300px; width: 200px, object-fit: cover;">
               <p class="m-0 pb-1 ps-3 pt-3" style="color: #563635" color: #563635> <strong><%= bear.name %></strong></p>
               <p class="m-0 pb-1 ps-3"><i class="fa fa-map-marker" aria-hidden="true"style="color: #563635"></i> <%= bear.location %></p>
               <p class="m-0 pb-1 ps-3"><i class="fa-solid fa-ruler"style="color: #563635"></i> <%= bear.size %></p>
