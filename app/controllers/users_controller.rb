@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_bear, only: :show
   before_action :set_user, only: :show
 
   def show
@@ -7,10 +6,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def set_bear
-    @bear = Bear.find(params[:id])
-  end
 
   def set_user
     @user = User.find(params[:id])
